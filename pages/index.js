@@ -65,7 +65,7 @@ const Index = ({musicData,profile}) => {
     // console.log('error', err);
     
     // });
-    liff.ready.then(() => {
+    // liff.ready.then(() => {
         liff.getProfile()
         .then(profile => {
         const name = profile.displayName;
@@ -74,7 +74,7 @@ const Index = ({musicData,profile}) => {
         .catch((err) => {
         console.log('error', err);
         });
-      })
+    //   })
     return (
         <Layout>
             <div>
