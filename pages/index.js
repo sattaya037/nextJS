@@ -72,9 +72,12 @@ const Index = ({musicData,profile}) => {
 Index.getInitialProps = async function() {
     const response = await fetch(`https://www.what-song.com/api/recent-movies`);
     const result = await response.json();
-    if (liff.isLoggedIn()) {
-        return { musicData: result.data,profile:"profile"}
-      }
+    if (typeof window !== "undefined") {
+        if (liff.isLoggedIn()) {
+            return { musicData: result.data,profile:"profile"}
+          }
+    }
+  
     //  liff.getProfile()
     // .then(profile => {
 
