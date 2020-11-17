@@ -7,6 +7,7 @@ import { Card,CardDeck ,CardColumns    } from 'react-bootstrap';
 
   
     if (typeof window !== "undefined") {
+        const liff = window.liff;
 
         liff
             .init({
