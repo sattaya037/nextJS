@@ -35,6 +35,8 @@ function initializeApp() {
         .then(profile => {
             console.log(profile)
             document.getElementById("head").innerHTML =profile.displayName;
+            document.getElementById("image").src = profile.pictureUrl;
+
             // document.getElementById("image").innerHTML =profile.displayName;
 
 
