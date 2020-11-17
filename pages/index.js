@@ -16,6 +16,8 @@ var liff ;
                 // Start to use liff's api
                 if (!liff.isLoggedIn()) {
                     liff.login();
+                    initializeApp();
+
                   }
             })
             .catch((err) => {
@@ -26,7 +28,16 @@ var liff ;
       }
 
 
+function initializeApp() {
+    liff.getProfile()
+        .then(profile => {
+            console.log(profile)
 
+        })
+        .catch((err) => {
+            console.log('error', err);
+        });
+}
 
 
 
@@ -57,24 +68,7 @@ const handleClick = (e) =>  {
 
 
 const Index = ({musicData,profile}) => {
-    // liff.getProfile()
-    // .then(profile => {
-    //     console.log(profile)
-    // })
-    // .catch((err) => {
-    // console.log('error', err);
-    
-    // });
-    // liff.ready.then(() => {
-        liff.getProfile()
-        .then(profile => {
-        const name = profile.displayName;
-        console.log(name)
-        })
-        .catch((err) => {
-        console.log('error', err);
-        });
-    //   })
+  
     return (
         <Layout>
             <div>
