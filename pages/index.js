@@ -40,7 +40,7 @@ const Index = ({musicData}) => {
     // console.log('error', err);
     
     // });
-
+    console.log(musicData)
     return (
         <Layout>
             <div>
