@@ -12,7 +12,7 @@ if (typeof window !== "undefined") {
         .then(() => {
             // Start to use liff's api
             if (!liff.isLoggedIn()) {
-                // liff.login();
+                liff.login();
               }
         })
         .catch((err) => {
