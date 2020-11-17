@@ -3,7 +3,6 @@ import Layout from '../components/layout';
 import fetch from 'isomorphic-unfetch';
 import { Card,CardDeck ,CardColumns    } from 'react-bootstrap';
 
-function LineInitfn() {
     if (typeof window !== "undefined") {
 
         liff
@@ -24,7 +23,7 @@ function LineInitfn() {
     
       }
 
-}
+
 
 
 
@@ -73,18 +72,20 @@ const Index = ({musicData,profile}) => {
 Index.getInitialProps = async function() {
     const response = await fetch(`https://www.what-song.com/api/recent-movies`);
     const result = await response.json();
-    LineInitfn();
-     liff.getProfile()
-    .then(profile => {
+    if (liff.isLoggedIn()) {
+        return { musicData: result.data,profile:"profile"}
+      }
+    //  liff.getProfile()
+    // .then(profile => {
 
-        return { musicData: result.data,profile:profile}
+    //     return { musicData: result.data,profile:profile}
 
-    })
-    .catch((err) => {
-    console.log('error', err);
+    // })
+    // .catch((err) => {
+    // console.log('error', err);
     
-    });
-
+    // });
+    
 }
 
 
