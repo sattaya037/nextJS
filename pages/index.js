@@ -42,7 +42,7 @@ const handleClick = (e) =>  {
 }
 
 
-const Index = ({musicData,getProfile}) => {
+const Index = ({musicData}) => {
     liff.getProfile()
     .then(profile => {
         console.log(profile)
@@ -55,7 +55,7 @@ const Index = ({musicData,getProfile}) => {
     return (
         <Layout>
             <div>
-                <h1>{getProfile}</h1>
+                <h1></h1>
                 <h3>Songs List</h3>
                 <CardColumns>
                 {musicData.map((item, i) => {
