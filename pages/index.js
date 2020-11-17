@@ -71,7 +71,6 @@ const Index = ({musicData,profile}) => {
             <div>
                 <h1>{profile}</h1>
                 <h3>Songs List</h3>
-                <Scroll />
                 <CardColumns>
                 {musicData.map((item, i) => {
                    return (
@@ -96,23 +95,8 @@ const Index = ({musicData,profile}) => {
 Index.getInitialProps = async function() {
     const response = await fetch(`https://www.what-song.com/api/recent-movies`);
     const result = await response.json();
-    // const slow = await resolveAfter2Seconds()
 
-    // if (typeof window !== "undefined") {
-          
-    // }
     return { musicData: result.data,profile:"slow"}
-
-    //  liff.getProfile()
-    // .then(profile => {
-
-    //     return { musicData: result.data,profile:profile}
-
-    // })
-    // .catch((err) => {
-    // console.log('error', err);
-    
-    // });
     
 }
 
