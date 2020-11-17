@@ -65,7 +65,16 @@ const Index = ({musicData,profile}) => {
     // console.log('error', err);
     
     // });
-    console.log(liff)
+    liff.ready.then(() => {
+        liff.getProfile()
+        .then(profile => {
+        const name = profile.displayName;
+        console.log(name)
+        })
+        .catch((err) => {
+        console.log('error', err);
+        });
+      })
     return (
         <Layout>
             <div>
