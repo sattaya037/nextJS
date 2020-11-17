@@ -3,25 +3,29 @@ import Layout from '../components/layout';
 import fetch from 'isomorphic-unfetch';
 import { Card,CardDeck ,CardColumns    } from 'react-bootstrap';
 
-if (typeof window !== "undefined") {
+function LineInitfn() {
+    if (typeof window !== "undefined") {
 
-    liff
-        .init({
-            liffId: "1653935174-baeNzNDB" // Use own liffId
-        })
-        .then(() => {
-            // Start to use liff's api
-            if (!liff.isLoggedIn()) {
-                liff.login();
-              }
-        })
-        .catch((err) => {
-            // Error happens during initialization
-            console.log(err.code, err.message);
-        });
+        liff
+            .init({
+                liffId: "1653935174-baeNzNDB" // Use own liffId
+            })
+            .then(() => {
+                // Start to use liff's api
+                if (!liff.isLoggedIn()) {
+                    liff.login();
+                  }
+            })
+            .catch((err) => {
+                // Error happens during initialization
+                console.log(err.code, err.message);
+            });
+    
+    
+      }
 
+}
 
-  }
 
 
 
@@ -31,7 +35,7 @@ const handleClick = (e) =>  {
 }
 
 
-const Index = ({musicData}) => {
+const Index = ({musicData,profile}) => {
     // liff.getProfile()
     // .then(profile => {
     //     console.log(profile)
@@ -40,11 +44,10 @@ const Index = ({musicData}) => {
     // console.log('error', err);
     
     // });
-    console.log(musicData)
     return (
         <Layout>
             <div>
-                <h1></h1>
+                <h1>{profile}</h1>
                 <h3>Songs List</h3>
                 <CardColumns>
                 {musicData.map((item, i) => {
@@ -70,21 +73,18 @@ const Index = ({musicData}) => {
 Index.getInitialProps = async function() {
     const response = await fetch(`https://www.what-song.com/api/recent-movies`);
     const result = await response.json();
-    // liff.init({ liffId: '1653935174-baeNzNDB' });
+    LineInitfn();
+     liff.getProfile()
+    .then(profile => {
 
-    // await liff.init({ liffId: '1653935174-baeNzNDB' }).catch(err=>{throw err});
-    // if (liff.isLoggedIn()) {
-    //   let getProfile = await liff.getProfile();
-    //   this.setState({
-    //     name: getProfile.displayName,
-    //     userLineID: getProfile.userId,
-    //     pictureUrl: getProfile.pictureUrl,
-    //   });
-    // }else{
-    //   liff.login();
-    // }
+        return { musicData: result.data,profile:profile}
 
-    return { musicData: result.data}
+    })
+    .catch((err) => {
+    console.log('error', err);
+    
+    });
+
 }
 
 
