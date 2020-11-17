@@ -12,7 +12,7 @@ if (typeof window !== "undefined") {
         .then(() => {
             // Start to use liff's api
             if (!liff.isLoggedIn()) {
-                liff.login();
+                // liff.login();
               }
         })
         .catch((err) => {
@@ -23,29 +23,31 @@ if (typeof window !== "undefined") {
 
   }
 
-
+  function myFunction() {
+    liff.getProfile()
+    .then(profile => {
+    return profile;
+    })
+    .catch((err) => {
+    console.log('error', err);
+    return false;
+    });
+  }
 
 
 
 // const liff = window.liff;
 const handleClick = (e) =>  {
-    liff.getProfile()
-        .then(profile => {
-        const name = profile.displayName;
-        alert(name)
-        })
-        .catch((err) => {
-        console.log('error', err);
-        });
+
 }
 
 
-const Index = ({musicData}) => {
+const Index = ({musicData,getProfile}) => {
 
     return (
         <Layout>
             <div>
-                <h1>Welcome to Next Application</h1>
+                <h1>{getProfile}</h1>
                 <h3>Songs List</h3>
                 <CardColumns>
                 {musicData.map((item, i) => {
@@ -72,7 +74,8 @@ Index.getInitialProps = async function() {
     const response = await fetch(`https://www.what-song.com/api/recent-movies`);
     const result = await response.json();
     // liff.init({ liffId: '1653935174-baeNzNDB' });
-    
+    var getProfile = myFunction();
+
     // await liff.init({ liffId: '1653935174-baeNzNDB' }).catch(err=>{throw err});
     // if (liff.isLoggedIn()) {
     //   let getProfile = await liff.getProfile();
@@ -85,7 +88,7 @@ Index.getInitialProps = async function() {
     //   liff.login();
     // }
 
-    return { musicData: result.data }
+    return { musicData: result.data ,profile :getProfile}
 }
 
 
