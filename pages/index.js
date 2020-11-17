@@ -16,6 +16,8 @@ var liff ;
                 // Start to use liff's api
                 if (!liff.isLoggedIn()) {
                     liff.login();
+
+                  }else{
                     initializeApp();
 
                   }
