@@ -1,8 +1,11 @@
 //pages/index.js
 import Layout from '../components/layout';
+
 import fetch from 'isomorphic-unfetch';
 import { Card,CardDeck ,CardColumns    } from 'react-bootstrap';
 
+
+  
     if (typeof window !== "undefined") {
 
         liff
@@ -33,24 +36,24 @@ const handleClick = (e) =>  {
     console.log(e)
 }
 
-function resolveAfter2Seconds() {
-    console.log("starting slow promise")
-    return new Promise(resolve => {
-      setTimeout(function() {
-         liff.getProfile()
-            .then(profile => {
-                console.log(profile)
-                resolve(profile)
+// function resolveAfter2Seconds() {
+//     console.log("starting slow promise")
+//     return new Promise(resolve => {
+//       setTimeout(function() {
+//          liff.getProfile()
+//             .then(profile => {
+//                 console.log(profile)
+//                 resolve(profile)
 
-            })
-            .catch((err) => {
-            console.log('error', err);
+//             })
+//             .catch((err) => {
+//             console.log('error', err);
             
-            });
-        console.log("slow promise is done")
-      }, 2000)
-    })
-  }
+//             });
+//         console.log("slow promise is done")
+//       }, 2000)
+//     })
+//   }
 
 
 const Index = ({musicData,profile}) => {
@@ -62,11 +65,13 @@ const Index = ({musicData,profile}) => {
     // console.log('error', err);
     
     // });
+    console.log(profile)
     return (
         <Layout>
             <div>
                 <h1>{profile}</h1>
                 <h3>Songs List</h3>
+                <Scroll />
                 <CardColumns>
                 {musicData.map((item, i) => {
                    return (
@@ -91,12 +96,12 @@ const Index = ({musicData,profile}) => {
 Index.getInitialProps = async function() {
     const response = await fetch(`https://www.what-song.com/api/recent-movies`);
     const result = await response.json();
-    const slow = await resolveAfter2Seconds()
+    // const slow = await resolveAfter2Seconds()
 
     // if (typeof window !== "undefined") {
           
     // }
-    return { musicData: result.data,profile:slow}
+    return { musicData: result.data,profile:"slow"}
 
     //  liff.getProfile()
     // .then(profile => {
