@@ -43,6 +43,14 @@ const handleClick = (e) =>  {
 
 
 const Index = ({musicData,getProfile}) => {
+    liff.getProfile()
+    .then(profile => {
+        console.log(profile)
+    })
+    .catch((err) => {
+    console.log('error', err);
+    
+    });
 
     return (
         <Layout>
@@ -74,7 +82,6 @@ Index.getInitialProps = async function() {
     const response = await fetch(`https://www.what-song.com/api/recent-movies`);
     const result = await response.json();
     // liff.init({ liffId: '1653935174-baeNzNDB' });
-    var getProfile = myFunction();
 
     // await liff.init({ liffId: '1653935174-baeNzNDB' }).catch(err=>{throw err});
     // if (liff.isLoggedIn()) {
@@ -88,7 +95,7 @@ Index.getInitialProps = async function() {
     //   liff.login();
     // }
 
-    return { musicData: result.data ,profile :getProfile}
+    return { musicData: result.data}
 }
 
 
