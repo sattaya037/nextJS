@@ -35,6 +35,8 @@ function initializeApp() {
         .then(profile => {
             console.log(profile)
             alert(profile)
+            document.getElementById("head").innerHTML =profile.displayName;
+
 
         })
         .catch((err) => {
@@ -70,12 +72,12 @@ const handleClick = (e) =>  {
 //   }
 
 
-const Index = ({musicData,profile}) => {
+const Index = ({musicData}) => {
   
     return (
         <Layout>
             <div>
-                <h1>{profile}</h1>
+                <h1 id="head"></h1>
                 <h3>Songs List</h3>
                 <CardColumns>
                 {musicData.map((item, i) => {
@@ -102,7 +104,7 @@ Index.getInitialProps = async function() {
     const response = await fetch(`https://www.what-song.com/api/recent-movies`);
     const result = await response.json();
 
-    return { musicData: result.data,profile:"slow"}
+    return { musicData: result.data}
     
 }
 
