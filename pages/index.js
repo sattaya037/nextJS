@@ -34,6 +34,7 @@ function initializeApp() {
     liff.getProfile()
         .then(profile => {
             console.log(profile)
+            alert(profile)
 
         })
         .catch((err) => {
