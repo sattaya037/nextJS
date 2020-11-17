@@ -23,34 +23,23 @@ if (typeof window !== "undefined") {
 
   }
 
-  function myFunction() {
-    liff.getProfile()
-    .then(profile => {
-    return profile;
-    })
-    .catch((err) => {
-    console.log('error', err);
-    return false;
-    });
-  }
-
 
 
 // const liff = window.liff;
 const handleClick = (e) =>  {
-
+    console.log(e)
 }
 
 
 const Index = ({musicData}) => {
-    liff.getProfile()
-    .then(profile => {
-        console.log(profile)
-    })
-    .catch((err) => {
-    console.log('error', err);
+    // liff.getProfile()
+    // .then(profile => {
+    //     console.log(profile)
+    // })
+    // .catch((err) => {
+    // console.log('error', err);
     
-    });
+    // });
 
     return (
         <Layout>
