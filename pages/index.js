@@ -2,7 +2,7 @@
 import Layout from '../components/layout';
 
 import fetch from 'isomorphic-unfetch';
-import { Card,CardDeck ,CardColumns    } from 'react-bootstrap';
+import { Card,CardDeck ,CardColumns,Row,Col,Image  } from 'react-bootstrap';
 var liff ;
   
     if (typeof window !== "undefined") {
@@ -34,8 +34,8 @@ function initializeApp() {
     liff.getProfile()
         .then(profile => {
             console.log(profile)
-            alert(profile)
             document.getElementById("head").innerHTML =profile.displayName;
+            // document.getElementById("image").innerHTML =profile.displayName;
 
 
         })
@@ -52,33 +52,20 @@ const handleClick = (e) =>  {
     console.log(liff)
 }
 
-// function resolveAfter2Seconds() {
-//     console.log("starting slow promise")
-//     return new Promise(resolve => {
-//       setTimeout(function() {
-//          liff.getProfile()
-//             .then(profile => {
-//                 console.log(profile)
-//                 resolve(profile)
-
-//             })
-//             .catch((err) => {
-//             console.log('error', err);
-            
-//             });
-//         console.log("slow promise is done")
-//       }, 2000)
-//     })
-//   }
-
 
 const Index = ({musicData}) => {
   
     return (
         <Layout>
             <div>
-                <h1 id="head"></h1>
-                <h3>Songs List</h3>
+                {/* <h1 id="head"></h1>
+                <h3>Songs List</h3> */}
+                <Row>
+                    <Col sm={8}><h1 id="head"></h1></Col>
+                    <Col sm={4}> <Image id ="image" src="" roundedCircle /></Col>
+                </Row>
+                <Row>
+
                 <CardColumns>
                 {musicData.map((item, i) => {
                    return (
@@ -95,7 +82,7 @@ const Index = ({musicData}) => {
                    )
                })}
                 </CardColumns>
-           
+                </Row>           
             </div>
         </Layout>
     );
