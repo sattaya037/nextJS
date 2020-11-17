@@ -19,7 +19,6 @@ const liff ;
                   }
             })
             .catch((err) => {
-                // Error happens during initialization
                 console.log(err.code, err.message);
             });
     
@@ -65,7 +64,6 @@ const Index = ({musicData,profile}) => {
     // console.log('error', err);
     
     // });
-    console.log(profile)
     return (
         <Layout>
             <div>
