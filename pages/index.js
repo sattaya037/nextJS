@@ -3,11 +3,10 @@ import Layout from '../components/layout';
 
 import fetch from 'isomorphic-unfetch';
 import { Card,CardDeck ,CardColumns    } from 'react-bootstrap';
-
-
+const liff ;
   
     if (typeof window !== "undefined") {
-        const liff = window.liff;
+         liff = window.liff;
 
         liff
             .init({
