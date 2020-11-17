@@ -33,6 +33,25 @@ const handleClick = (e) =>  {
     console.log(e)
 }
 
+function resolveAfter2Seconds() {
+    console.log("starting slow promise")
+    return new Promise(resolve => {
+      setTimeout(function() {
+         liff.getProfile()
+            .then(profile => {
+                console.log(profile)
+                resolve(profile)
+
+            })
+            .catch((err) => {
+            console.log('error', err);
+            
+            });
+        console.log("slow promise is done")
+      }, 2000)
+    })
+  }
+
 
 const Index = ({musicData,profile}) => {
     // liff.getProfile()
@@ -72,12 +91,13 @@ const Index = ({musicData,profile}) => {
 Index.getInitialProps = async function() {
     const response = await fetch(`https://www.what-song.com/api/recent-movies`);
     const result = await response.json();
-    if (typeof window !== "undefined") {
-        if (liff.isLoggedIn()) {
-            return { musicData: result.data,profile:"profile"}
-          }
-    }
-  
+    const slow = await resolveAfter2Seconds()
+
+    // if (typeof window !== "undefined") {
+          
+    // }
+    return { musicData: result.data,profile:slow}
+
     //  liff.getProfile()
     // .then(profile => {
 
