@@ -3,7 +3,7 @@ import Layout from '../components/layout';
 
 import fetch from 'isomorphic-unfetch';
 import { Card,CardDeck ,CardColumns    } from 'react-bootstrap';
-const liff ;
+var liff ;
   
     if (typeof window !== "undefined") {
          liff = window.liff;
@@ -33,6 +33,7 @@ const liff ;
 // const liff = window.liff;
 const handleClick = (e) =>  {
     console.log(e)
+    console.log(liff)
 }
 
 // function resolveAfter2Seconds() {
@@ -64,6 +65,7 @@ const Index = ({musicData,profile}) => {
     // console.log('error', err);
     
     // });
+    console.log(liff)
     return (
         <Layout>
             <div>
