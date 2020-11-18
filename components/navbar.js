@@ -2,49 +2,78 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-const names ;
 
-var liff ;
-    if (typeof window !== "undefined") {
-         liff = window.liff;
+// var liff ;
+//     if (typeof window !== "undefined") {
+//          liff = window.liff;
 
-        liff
-            .init({
-                liffId: "1653935174-baeNzNDB" // Use own liffId
-            })
-            .then(() => {
-                // Start to use liff's api
-                if (!liff.isLoggedIn()) {
-                    liff.login();
+//         liff
+//             .init({
+//                 liffId: "1653935174-baeNzNDB" // Use own liffId
+//             })
+//             .then(() => {
+//                 // Start to use liff's api
+//                 if (!liff.isLoggedIn()) {
+//                     liff.login();
 
-                  }else{
-                    initializeApp();
+//                   }else{
+//                     initializeApp();
 
-                  }
-            })
-            .catch((err) => {
-                console.log(err.code, err.message);
-            });
+//                   }
+//             })
+//             .catch((err) => {
+//                 console.log(err.code, err.message);
+//             });
     
     
- }
+//  }
 
- function initializeApp() {
+//  function initializeApp() {
 
-    liff.getProfile()
-        .then(profile => {
-            names = profile
-            console.log(names)
-        })
-        .catch((err) => {
-            console.log('error', err);
-        });
-}
+//     liff.getProfile()
+//         .then(profile => {
+//             names = profile
+//             console.log(names)
+//         })
+//         .catch((err) => {
+//             console.log('error', err);
+//         });
+// }
 
 
 
 export default function Navbar() {
-    console.log(names)
+    var liff ,data;
+    if (typeof window !== "undefined") {
+        liff = window.liff;
+                liff
+                    .init({
+                        liffId: "1653935174-baeNzNDB" // Use own liffId
+                    })
+                    .then(() => {
+                        // Start to use liff's api
+                        if (!liff.isLoggedIn()) {
+                            liff.login();
+        
+                          }else{
+                             liff.getProfile()
+                                .then(profile => {
+                                    data = profile
+                                    console.log(data)
+                                })
+                                .catch((err) => {
+                                    console.log('error', err);
+                                });
+                        
+                          }
+                    })
+                    .catch((err) => {
+                        console.log(err.code, err.message);
+                    });
+    }else{
+        console.log(false)
+    }
+    console.log(data)
     return (
       <div>
         <input
