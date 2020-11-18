@@ -28,7 +28,10 @@ var liff ;
     
       }
 
-const Navbar = () => {
+const Navbar = (profile) => {
+    if(profile){
+        console.log(profile)
+    }
     return(
         <div>
             <ul>
@@ -66,6 +69,13 @@ function initializeApp() {
             // document.getElementById("image").src = profile.pictureUrl;
          
             // document.getElementById("image").innerHTML =profile.displayName;
+            Navbar.getInitialProps = async function(profile) {
+                // const response = await fetch(`https://www.what-song.com/api/recent-movies`);
+                // const result = await response.json();
+                console.log(profile);
+                return { musicData: profile}
+                
+            }
 
 
         })
