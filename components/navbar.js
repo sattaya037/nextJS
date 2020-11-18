@@ -70,27 +70,27 @@ export default function Navbar() {
                     .catch((err) => {
                         console.log(err.code, err.message);
                     });
-    }else{
-        console.log(false)
+
+                    return (
+                        <div>
+                          <input
+                            type="text"
+                            placeholder="Search"
+                            onChange={async (e) => {
+                              // const { value } = e.currentTarget
+                              // Dynamically load fuse.js
+                              // const Fuse = (await import('fuse.js')).default
+                              // const fuse = new Fuse(names)
+                    
+                              // setResults(fuse.search(value))
+                            }}
+                          />
+                          {/* <pre>{names}</pre> */}
+                        </div>
+                      )
+        
     }
-    console.log(data)
-    return (
-      <div>
-        <input
-          type="text"
-          placeholder="Search"
-          onChange={async (e) => {
-            // const { value } = e.currentTarget
-            // Dynamically load fuse.js
-            // const Fuse = (await import('fuse.js')).default
-            // const fuse = new Fuse(names)
-  
-            // setResults(fuse.search(value))
-          }}
-        />
-        {/* <pre>{names}</pre> */}
-      </div>
-    )
+
   }
 
 
