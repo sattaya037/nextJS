@@ -3,7 +3,7 @@ import Layout from '../components/layout';
 
 import fetch from 'isomorphic-unfetch';
 // import { Card,CardDeck ,CardColumns,Row,Col,Image  } from 'react-bootstrap';
-import {Grid,GridList,GridListTile,GridListTileBar,IconButton} from '@material-ui/core';
+import {Grid,GridList,GridListTile,GridListTileBar,Avatar} from '@material-ui/core';
 
 var liff ;
   
