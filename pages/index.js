@@ -33,13 +33,15 @@ var liff ;
 
 
 function initializeApp() {
+    var a =  document.getElementById("image");
+    console.log(a)
     liff.getProfile()
         .then(profile => {
             console.log(profile)
             document.getElementById("head").innerHTML =profile.displayName;
             document.getElementById("head").style.textAlign = "left";
-            document.getElementById("image").src = profile.pictureUrl;
-
+            // document.getElementById("image").src = profile.pictureUrl;
+         
             // document.getElementById("image").innerHTML =profile.displayName;
 
 
@@ -48,6 +50,8 @@ function initializeApp() {
             console.log('error', err);
         });
 }
+
+
 
 
 
