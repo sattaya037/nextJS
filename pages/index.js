@@ -67,7 +67,7 @@ const Index = ({musicData}) => {
                     <Avatar id="image" alt="Remy Sharp" src="" />
                 </Grid>
                 <Grid item xs={10}>
-                     <h2 id="head" style="text-align:left"></h2>
+                     <h2 id="head"></h2>
                 </Grid>
                 <Grid item xs={12}>
                 <h3>Songs List</h3>
