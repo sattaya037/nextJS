@@ -64,7 +64,6 @@ const handleClick = (e) =>  {
 
 
 const Index = ({musicData}) => {
-    console.log(musicData)
     return (
         <Layout>
             <div>
