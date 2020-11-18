@@ -17,7 +17,7 @@ var liff ;
                     liff.login();
 
                   }else{
-                    initializeApp();
+                    Navbar();
          
 
                   }
@@ -29,8 +29,59 @@ var liff ;
     
       }
 
-const Navbar = (profile) => {
+// const Navbar = (profile) => {
 
+//     return(
+//         <div>
+//             <ul>
+//                 <li><Link href="/"><a>Home</a></Link></li>
+//                 <li><Link href="/about"><a>About</a></Link></li>
+//             </ul>
+// <style jsx>{`
+//                 ul {
+//                     background: #333;
+//                     color: #fff;
+//                     list-style: none;
+//                     display: flex;
+//                 }
+// ul li {
+//                     font-size: 22px;
+//                     margin-right: 50px;
+//                 }
+// ul li a {
+//                     color: #fff;
+//                     text-decoration: none;
+//                 }
+//             `}</style>
+//                 <Grid container spacing={3}>
+//                 <Grid item xs={2}>
+//                     <Avatar id="image" alt="Remy Sharp" src="" />
+//                 </Grid>
+//                 <Grid item xs={10}>
+//                     <h2 id="head">{profile}</h2>
+//                 </Grid>
+
+//                 </Grid>
+
+//         </div>
+//     );
+// }
+
+function Navbar() {
+        liff.getProfile()
+        .then(profile => {
+            console.log(profile)
+            // document.getElementById("head").innerHTML =profile.displayName;
+            // document.getElementById("head").style.textAlign = "left";
+            // document.getElementById("image").src = profile.pictureUrl;
+         
+            // document.getElementById("image").innerHTML =profile.displayName;
+
+
+        })
+        .catch((err) => {
+            console.log('error', err);
+        });
     return(
         <div>
             <ul>
@@ -65,11 +116,13 @@ ul li a {
 
         </div>
     );
-}
+  }
+  
 
 
 function initializeApp() {
 
+    
     // liff.getProfile()
     //     .then(profile => {
     //         console.log(profile)
