@@ -2,31 +2,6 @@
 import Head from 'next/head';
 import Navbar from './navbar';
 
-var liff ;
-  
-    if (typeof window !== "undefined") {
-         liff = window.liff;
-
-        liff
-            .init({
-                liffId: "1653935174-baeNzNDB" // Use own liffId
-            })
-            .then(() => {
-                // Start to use liff's api
-                if (!liff.isLoggedIn()) {
-                    liff.login();
-
-                  }else{
-
-                  }
-            })
-            .catch((err) => {
-                console.log(err.code, err.message);
-            });
-    
-    
-      }
-
 
 
 const Layout = (props) => {
