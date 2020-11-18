@@ -2,7 +2,9 @@
 import Layout from '../components/layout';
 
 import fetch from 'isomorphic-unfetch';
-import { Card,CardDeck ,CardColumns,Row,Col,Image  } from 'react-bootstrap';
+// import { Card,CardDeck ,CardColumns,Row,Col,Image  } from 'react-bootstrap';
+import {Grid,GridList,GridListTile,GridListTileBar,IconButton} from '@material-ui/core';
+
 var liff ;
   
     if (typeof window !== "undefined") {
@@ -56,15 +58,37 @@ const handleClick = (e) =>  {
 
 
 const Index = ({musicData}) => {
-  
+    console.log(musicData)
     return (
         <Layout>
             <div>
+            <Grid container spacing={3}>
+                <Grid item xs={12}>
+                <Avatar id="image" alt="Remy Sharp" src="" />
+
+                </Grid>
+                <GridList cellHeight={160} cols={3}>
+                    {musicData.map((item,i) => (
+                         <GridListTile key={item._id}>
+                         <img src={item.poster_url} alt={item.title} />
+                         <GridListTileBar
+                           title={item.title}
+                           subtitle={<span>by: {item.composer}</span>}
+                        //    actionIcon={
+                        //      <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
+                        //        <InfoIcon />
+                        //      </IconButton>
+                        //    }
+                         />
+                       </GridListTile>
+                    ))}
+                </GridList>
+            </Grid>
                 {/* <h1 id="head"></h1>
-                <h3>Songs List</h3> */}
+                <h3>Songs List</h3>
                 <Row>
                     <Col sm={8}><h1 id="head"></h1></Col>
-                    <Col sm={4}> <Image id ="image" src="" class="avatar" roundedCircle  /></Col>
+                    <Col sm={4}> <Image id ="image" src=""  roundedCircle  /></Col>
                 </Row>
                 <Row>
 
@@ -72,7 +96,6 @@ const Index = ({musicData}) => {
                 {musicData.map((item, i) => {
                    return (
                    <Card  key={i}  onClick={handleClick}>
-                       {/* <Card.Img   src={item.poster_url} */}
                        <Card.Img variant="top" />
                         <Card.Title>{item.title}</Card.Title>
                         <Card.Text>{item.intro}</Card.Text>
@@ -84,7 +107,7 @@ const Index = ({musicData}) => {
                    )
                })}
                 </CardColumns>
-                </Row>           
+                </Row>            */}
             </div>
         </Layout>
     );
