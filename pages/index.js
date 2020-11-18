@@ -34,7 +34,7 @@ var liff ;
 
 function initializeApp() {
  
-    debugger
+    
     liff.getProfile()
         .then(profile => {
             console.log(profile)
