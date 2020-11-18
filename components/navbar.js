@@ -42,42 +42,34 @@ import {Grid,GridList,GridListTile,GridListTileBar,Avatar} from '@material-ui/co
 //         </div>
 //     );
 // }
+// var liff ;
+// if (typeof window !== "undefined") {
+//      liff = window.liff;
 
-function Navbar() {
+//     liff
+//         .init({
+//             liffId: "1653935174-baeNzNDB" // Use own liffId
+//         })
+//         .then(() => {
+//             // Start to use liff's api
+//             if (!liff.isLoggedIn()) {
+//                 liff.login();
 
-    var liff ;
-    var getNav;
-    if (typeof window !== "undefined") {
-         liff = window.liff;
+//               }else{
+//                 createmyElements()
 
-        liff
-            .init({
-                liffId: "1653935174-baeNzNDB" // Use own liffId
-            })
-            .then(() => {
-                // Start to use liff's api
-                if (!liff.isLoggedIn()) {
-                    getNav  = true;
-                    liff.login();
+//               }
+//         })
+//         .catch((err) => {
+//             console.log(err.code, err.message);
+//         });
 
-                  }else{
-                    getNav  = false;
-         
 
-                  }
-            })
-            .catch((err) => {
-                console.log(err.code, err.message);
-            });
-    
-    
-      }else{
-        getNav  = "else";
+//   }
 
-      }
-       
-      console.log(getNav)
-  
+function Navbar({Profile}) {
+
+    console.log(Profile)
     return (
         <div>
             <ul>
@@ -113,11 +105,30 @@ ul li a {
         </div>
     );
   }
+
+  if (typeof window !== "undefined") {
+    Navbar.getInitialProps = async () => {
+        await liff.init({ liffId: "1653935174-baeNzNDB" }).catch(err=>{throw err});
+        if (!liff.isLoggedIn()) {
+            liff.login();
+
+     
+        }else{
+            let getProfile = await liff.getProfile();
+            return { Profile: getProfile }
+
+        }
+      }
+    
+
+  }
+
+
+
+
+
+function createmyElements() {
   
-
-
-function initializeApp() {
-
     
     // liff.getProfile()
     //     .then(profile => {
