@@ -57,27 +57,11 @@ function Navbar() {
             .then(() => {
                 // Start to use liff's api
                 if (!liff.isLoggedIn()) {
-                    getNav  = () => {
-                        return(
-                                <div>
-                                    <ul>
-                                        <li><Link href="/"><a>login</a></Link></li>
-                                    </ul>
-                                </div>
-                        );
-                    }
+                    getNav  = true;
                     liff.login();
 
                   }else{
-                    getNav  = () => {
-                        return(
-                                <div>
-                                    <ul>
-                                        <li><Link href="/"><a>logen</a></Link></li>
-                                    </ul>
-                                </div>
-                        );
-                    }
+                    getNav  = false;
          
 
                   }
@@ -87,6 +71,9 @@ function Navbar() {
             });
     
     
+      }else{
+        getNav  = "else";
+
       }
        
       console.log(getNav)
