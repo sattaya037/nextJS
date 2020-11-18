@@ -63,9 +63,11 @@ const Index = ({musicData}) => {
         <Layout>
             <div>
             <Grid container spacing={3}>
-                <Grid item xs={12}>
-                <Avatar id="image" alt="Remy Sharp" src="" />
-                <h1 id="head"></h1>
+                <Grid item xs={4}>
+                    <Avatar id="image" alt="Remy Sharp" src="" />
+                </Grid>
+                <Grid item xs={8}>
+                     <h1 id="head"></h1>
                 </Grid>
                 <Grid item xs={12}>
                 <h3>Songs List</h3>
