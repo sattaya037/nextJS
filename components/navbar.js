@@ -46,6 +46,7 @@ import {Grid,GridList,GridListTile,GridListTileBar,Avatar} from '@material-ui/co
 function Navbar() {
 
     var liff ;
+    var getNav;
     if (typeof window !== "undefined") {
          liff = window.liff;
 
@@ -57,55 +58,25 @@ function Navbar() {
                 // Start to use liff's api
                 if (!liff.isLoggedIn()) {
                     liff.login();
-
+                    getNav  = () => {
+                        return(
+                                <div>
+                                    <ul>
+                                        <li><Link href="/"><a>login</a></Link></li>
+                                    </ul>
+                                </div>
+                        );
+                    }
                   }else{
-
-                      liff.getProfile()
-        .then(profile => {
-            console.log(profile)
-
-
-        })
-        .catch((err) => {
-            console.log('error', err);
-        });
-
-
-
-                    return(
-                        <div>
-                            <ul>
-                                <li><Link href="/"><a>Home</a></Link></li>
-                                <li><Link href="/about"><a>About</a></Link></li>
-                            </ul>
-                <style jsx>{`
-                                ul {
-                                    background: #333;
-                                    color: #fff;
-                                    list-style: none;
-                                    display: flex;
-                                }
-                ul li {
-                                    font-size: 22px;
-                                    margin-right: 50px;
-                                }
-                ul li a {
-                                    color: #fff;
-                                    text-decoration: none;
-                                }
-                            `}</style>
-                                <Grid container spacing={3}>
-                                <Grid item xs={2}>
-                                    <Avatar id="image" alt="Remy Sharp" src="" />
-                                </Grid>
-                                <Grid item xs={10}>
-                                    <h2 id="head"></h2>
-                                </Grid>
-                
-                                </Grid>
-                
-                        </div>
-                    );
+                    getNav  = () => {
+                        return(
+                                <div>
+                                    <ul>
+                                        <li><Link href="/"><a>logen</a></Link></li>
+                                    </ul>
+                                </div>
+                        );
+                    }
          
 
                   }
@@ -117,6 +88,42 @@ function Navbar() {
     
       }
        
+  
+    return getNav;
+//     (
+//         <div>
+//             <ul>
+//                 <li><Link href="/"><a>Home</a></Link></li>
+//                 <li><Link href="/about"><a>About</a></Link></li>
+//             </ul>
+// <style jsx>{`
+//                 ul {
+//                     background: #333;
+//                     color: #fff;
+//                     list-style: none;
+//                     display: flex;
+//                 }
+// ul li {
+//                     font-size: 22px;
+//                     margin-right: 50px;
+//                 }
+// ul li a {
+//                     color: #fff;
+//                     text-decoration: none;
+//                 }
+//             `}</style>
+//                 <Grid container spacing={3}>
+//                 <Grid item xs={2}>
+//                     <Avatar id="image" alt="Remy Sharp" src="" />
+//                 </Grid>
+//                 <Grid item xs={10}>
+//                     <h2 id="head"></h2>
+//                 </Grid>
+
+//                 </Grid>
+
+//         </div>
+//     );
   }
   
 
