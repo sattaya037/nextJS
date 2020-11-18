@@ -64,7 +64,7 @@ const Index = ({musicData}) => {
                 <h3>Songs List</h3> */}
                 <Row>
                     <Col sm={8}><h1 id="head"></h1></Col>
-                    <Col sm={4}> <Image id ="image" src="" roundedCircle /></Col>
+                    <Col sm={4}> <Image id ="image" src="" class="avatar" roundedCircle  /></Col>
                 </Row>
                 <Row>
 
