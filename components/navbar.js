@@ -106,22 +106,24 @@ ul li a {
     );
   }
 
-  if (typeof window !== "undefined") {
+//   if (typeof window !== "undefined") {
     Navbar.getInitialProps = async () => {
-        await liff.init({ liffId: "1653935174-baeNzNDB" }).catch(err=>{throw err});
-        if (!liff.isLoggedIn()) {
-            liff.login();
+        const response =  await liff.init({ liffId: "1653935174-baeNzNDB" }).catch(err=>{throw err});
+        console.log(response)
+        return { Profile: "getProfile" }
+
+        // if (!liff.isLoggedIn()) {
+        //     liff.login();
 
      
-        }else{
-            let getProfile = await liff.getProfile();
-            return { Profile: getProfile }
+        // }else{
+        //     let getProfile = await liff.getProfile();
 
-        }
+        // }
       }
     
 
-  }
+//   }
 
 
 
