@@ -65,7 +65,10 @@ const Index = ({musicData}) => {
             <Grid container spacing={3}>
                 <Grid item xs={12}>
                 <Avatar id="image" alt="Remy Sharp" src="" />
-
+                <h1 id="head"></h1>
+                </Grid>
+                <Grid item xs={12}>
+                <h3>Songs List</h3>
                 </Grid>
                 <GridList cellHeight={160} cols={3}>
                     {musicData.map((item,i) => (
