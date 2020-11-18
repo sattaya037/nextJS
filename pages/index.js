@@ -35,6 +35,7 @@ var liff ;
 function initializeApp() {
     var a =  document.getElementById("image");
     console.log(a)
+    debugger
     liff.getProfile()
         .then(profile => {
             console.log(profile)
