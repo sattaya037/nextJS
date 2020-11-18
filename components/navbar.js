@@ -30,9 +30,7 @@ var liff ;
       }
 
 const Navbar = (profile) => {
-    if(profile){
-        console.log(profile)
-    }
+
     return(
         <div>
             <ul>
@@ -72,27 +70,27 @@ ul li a {
 
 function initializeApp() {
 
-    liff.getProfile()
-        .then(profile => {
-            console.log(profile)
-            // document.getElementById("head").innerHTML =profile.displayName;
-            // document.getElementById("head").style.textAlign = "left";
-            // document.getElementById("image").src = profile.pictureUrl;
+    // liff.getProfile()
+    //     .then(profile => {
+    //         console.log(profile)
+    //         // document.getElementById("head").innerHTML =profile.displayName;
+    //         // document.getElementById("head").style.textAlign = "left";
+    //         // document.getElementById("image").src = profile.pictureUrl;
          
-            // document.getElementById("image").innerHTML =profile.displayName;
-            Navbar.getInitialProps = async function(profile) {
-                // const response = await fetch(`https://www.what-song.com/api/recent-movies`);
-                // const result = await response.json();
-                console.log(profile);
-                return { musicData: profile}
+    //         // document.getElementById("image").innerHTML =profile.displayName;
+    //         Navbar.getInitialProps = async function(profile) {
+    //             // const response = await fetch(`https://www.what-song.com/api/recent-movies`);
+    //             // const result = await response.json();
+    //             console.log(profile);
+    //             return { musicData: profile}
                 
-            }
+    //         }
 
 
-        })
-        .catch((err) => {
-            console.log('error', err);
-        });
+    //     })
+    //     .catch((err) => {
+    //         console.log('error', err);
+    //     });
 }
 
 
