@@ -3,25 +3,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import {Grid,GridList,GridListTile,GridListTileBar,Avatar} from '@material-ui/core';
 import login from './linelogin'
-// async function login() {
-//     if (process.browser) {
-//         const liff = window.liff;
-//         await liff.init({ liffId: '1653935174-baeNzNDB' }).catch(err=>{throw err});
-//         if (liff.isLoggedIn()) {
-//           let getProfile = await liff.getProfile();
-//             console.log(getProfile);
-//             return getProfile;
-//         }else{
-//           liff.login();
-//         }
-//     }    
+import dynamic from 'next/dynamic'
+const DynamicComponent = dynamic(() =>
+  import('./linelogin').then((mod) => mod.login)
+)
 
-// }
-console.log(login())
-const SomeComponent = () => {
-
-    return <h1>Hello</h1>
-  }
 
 
 
@@ -50,8 +36,7 @@ ul li a {
                     text-decoration: none;
                 }
             `}</style>
-
-
+        <DynamicComponent />
         </div>
     );
 }
