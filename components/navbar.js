@@ -4,21 +4,21 @@ import { useRouter } from 'next/router';
 import {Grid,GridList,GridListTile,GridListTileBar,Avatar} from '@material-ui/core';
 import login from './linelogin'
 import dynamic from 'next/dynamic'
-const DynamicComponent = dynamic(() =>
-  import('./linelogin').then((mod) => mod.login)
-)
+// const DynamicComponent = dynamic(() =>
+//   import('./linelogin').then((mod) => mod.login())
+// )
 
 
+const a = login();
 
-
-const Navbar = ()  => {
-
+function Navbar() {
+// console.log(data)
     return(
         <div>
             <ul>
-                <li><Link href="/"><a>Home</a></Link></li>
+                <li><Link href="/"><a>{a}</a></Link></li>
                 <li><Link href="/about"><a>About</a></Link></li>
-                <li> <DynamicComponent /></li>
+                <li></li>
             </ul>
 <style jsx>{`
                 ul {
@@ -39,7 +39,6 @@ ul li a {
         </div>
     );
 }
-
 
 
 
