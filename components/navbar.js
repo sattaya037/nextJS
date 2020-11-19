@@ -3,31 +3,46 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import {Grid,GridList,GridListTile,GridListTileBar,Avatar} from '@material-ui/core';
 
-
-const SomeComponent = () => {
-    var a;
+async function login() {
     if (process.browser) {
         const liff = window.liff;
-        liff
-            .init({
-                liffId: "1653935174-baeNzNDB" // Use own liffId
-            })
-            .then(() => {
-                // Start to use liff's api
-                if (!liff.isLoggedIn()) {
-                    liff.login();
+        await liff.init({ liffId: '1653935174-baeNzNDB' }).catch(err=>{throw err});
+        if (liff.isLoggedIn()) {
+          let getProfile = await liff.getProfile();
+            console.log(getProfile);
+            return getProfile;
+        }else{
+          liff.login();
+          return "getProfile";
+        }
 
-                  }else{
-                    a = "hello";
+        // const liff = window.liff;
+        // liff
+        //     .init({
+        //         liffId: "1653935174-baeNzNDB" // Use own liffId
+        //     })
+        //     .then(() => {
+        //         // Start to use liff's api
+        //         if (!liff.isLoggedIn()) {
+        //             liff.login();
+    
+        //           }else{
+        //             a = "hello";
+    
+        //           }
+        //     })
+        //     .catch((err) => {
+        //         console.log(err.code, err.message);
+        //     });
+    }    
 
-                  }
-            })
-            .catch((err) => {
-                console.log(err.code, err.message);
-            });
-    }
+}
 
-    console.log(a)
+
+const SomeComponent = () => {
+ 
+    
+    console.log(login())
 
    return <Avatar alt="Remy Sharp" src="" />
   }
