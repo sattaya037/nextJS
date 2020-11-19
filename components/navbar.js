@@ -47,6 +47,8 @@ return <h1>{getProfile.displayName}</h1>
   }
 
 const Navbar = ()  => {
+    console.log(login());
+    
     return(
         <div>
             <ul>
@@ -69,7 +71,7 @@ ul li a {
                     text-decoration: none;
                 }
             `}</style>
-                <SomeComponent />
+                {/* <SomeComponent /> */}
 
 
         </div>
