@@ -12,8 +12,8 @@ import Hello from './hello';
 // })
 const ProfileData =[];
 const isWindowContext = typeof window !== "undefined";
-ProfileData.push(Login())
-console.log(ProfileData)
+// ProfileData.push(Login())
+// console.log(ProfileData)
  function Navbar() {
     const search = isWindowContext && window.innerWidth;
     const liff = isWindowContext && window.liff;
