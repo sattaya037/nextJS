@@ -2,13 +2,13 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import {Grid,GridList,GridListTile,GridListTileBar,Avatar} from '@material-ui/core';
-import login from './linelogin'
+import Login from './linelogin'
 import dynamic from 'next/dynamic'
+import Hello from './hello';
 
-
-login().then(function(result) {
-    console.log(result)
-})
+// login().then(function(result) {
+//     console.log(result)
+// })
 
 
 function Navbar() {
@@ -18,7 +18,8 @@ function Navbar() {
             <ul>
                 <li><Link href="/"><a>Home</a></Link></li>
                 <li><Link href="/about"><a>About</a></Link></li>
-                <li></li>
+                <li><Login></Login></li>
+                
             </ul>
 <style jsx>{`
                 ul {
