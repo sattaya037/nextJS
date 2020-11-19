@@ -1,12 +1,12 @@
 //components/layout.js
 import Head from 'next/head';
 import Navbar from './navbar';
-import dynamic from 'next/dynamic'
-
+import dynamic from 'next/dynamic';
+import Login from './linelogin';
 // const DynamicComponent = dynamic(() =>
 //   import('./hello').then((mod) => mod.Hello)
 // )
-
+// Login();
 
 const Layout = (props) => {
     return(
@@ -16,6 +16,7 @@ const Layout = (props) => {
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
                 <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
             </Head>
+            {/* <Login/> */}
             <Navbar/>
             {/* <DynamicComponent /> */}
 
