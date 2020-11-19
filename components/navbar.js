@@ -13,7 +13,6 @@ async function login() {
             return getProfile;
         }else{
           liff.login();
-          return "getProfile";
         }
 
         // const liff = window.liff;
@@ -44,7 +43,7 @@ const SomeComponent = () => {
     
     console.log(login())
 
-   return <Avatar alt="Remy Sharp" src="" />
+   return <Avatar alt={login().displayName} src={login().pictureUrl} />
   }
 
 const Navbar = ()  => {
