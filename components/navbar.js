@@ -48,11 +48,11 @@ return <h1>{getProfile.displayName}</h1>
 
 const Navbar = ()  => {
     console.log(login());
-    
+    var a =login();
     return(
         <div>
             <ul>
-                <li><Link href="/"><a>Home</a></Link></li>
+                <li><Link href="/"><a>{a}</a></Link></li>
                 <li><Link href="/about"><a>About</a></Link></li>
             </ul>
 <style jsx>{`
