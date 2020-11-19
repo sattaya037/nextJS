@@ -6,22 +6,18 @@ import Login from './linelogin'
 import dynamic from 'next/dynamic'
 import Hello from './hello';
 
-// Login();
 // login().then(function(result) {
 //     console.log(result)
 // })
-const ProfileData =[];
-const isWindowContext = typeof window !== "undefined";
-// ProfileData.push(Login())
-// console.log(ProfileData)
- function Navbar() {
-    const search = isWindowContext && window.innerWidth;
-    const liff = isWindowContext && window.liff;
 
+// const isWindowContext = typeof window !== "undefined";
+// const search = isWindowContext && window.location.search;
+
+export function Navbar() {
     return(
                 <div>
                     <ul>
-                        <li><Link href="/"><a>{search}</a></Link></li>
+                        <li><Link href="/"><a>Home</a></Link></li>
                         <li><Link href="/about"><a>About</a></Link></li>
                         <li></li>
                         
