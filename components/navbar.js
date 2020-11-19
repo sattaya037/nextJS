@@ -6,18 +6,18 @@ import Login from './linelogin'
 import dynamic from 'next/dynamic'
 import Hello from './hello';
 
-Login();
+// Login();
 // login().then(function(result) {
 //     console.log(result)
 // })
-
+const ProfileData =[];
 const isWindowContext = typeof window !== "undefined";
-
+ProfileData.push(Login())
+console.log(ProfileData)
  function Navbar() {
     const search = isWindowContext && window.innerWidth;
     const liff = isWindowContext && window.liff;
-    
-    console.log(liff.getProfile())
+
     return(
                 <div>
                     <ul>
