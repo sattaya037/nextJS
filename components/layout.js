@@ -12,7 +12,8 @@ const Layout = (props) => {
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
                 <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
             </Head>
-            <Navbar />
+            <Navbar/>
+
             <div className="container">
                 {props.children}
             </div>

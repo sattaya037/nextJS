@@ -5,6 +5,8 @@ import fetch from 'isomorphic-unfetch';
 // import { Card,CardDeck ,CardColumns,Row,Col,Image  } from 'react-bootstrap';
 import {Grid,GridList,GridListTile,GridListTileBar,Avatar} from '@material-ui/core';
 
+// const liff = window.liff;
+
 // var liff ;
   
 //     if (typeof window !== "undefined") {
@@ -117,9 +119,11 @@ const Index = ({musicData}) => {
     );
 }
 Index.getInitialProps = async function() {
+    
     const response = await fetch(`https://www.what-song.com/api/recent-movies`);
     const result = await response.json();
-
+    // const lineInit =   await liff.init({ liffId: "1653935174-baeNzNDB" }).catch(err=>{throw err});
+    // console.log(lineInit)
     return { musicData: result.data}
     
 }
