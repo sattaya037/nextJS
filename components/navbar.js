@@ -12,13 +12,13 @@ const DynamicComponent = dynamic(() =>
 
 
 const Navbar = ()  => {
-    console.log(login())
 
     return(
         <div>
             <ul>
                 <li><Link href="/"><a>Home</a></Link></li>
                 <li><Link href="/about"><a>About</a></Link></li>
+                <li> <DynamicComponent /></li>
             </ul>
 <style jsx>{`
                 ul {
@@ -36,7 +36,6 @@ ul li a {
                     text-decoration: none;
                 }
             `}</style>
-        <DynamicComponent />
         </div>
     );
 }
