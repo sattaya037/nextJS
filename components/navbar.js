@@ -26,6 +26,7 @@ const SomeComponent = () => {
 
 
 const Navbar = ()  => {
+    console.log(login())
 
     return(
         <div>
@@ -49,7 +50,6 @@ ul li a {
                     text-decoration: none;
                 }
             `}</style>
-                <SomeComponent />
 
 
         </div>
