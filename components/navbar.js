@@ -40,10 +40,10 @@ async function login() {
 
 const SomeComponent = () => {
  
-    
+    var getProfile = login();
     console.log(login())
 
-   return <Avatar alt={login().displayName} src={login().pictureUrl} />
+return <h1>{getProfile.displayName}</h1>
   }
 
 const Navbar = ()  => {
