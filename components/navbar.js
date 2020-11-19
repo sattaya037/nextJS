@@ -2,26 +2,37 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import {Grid,GridList,GridListTile,GridListTileBar,Avatar} from '@material-ui/core';
-import liff from '@line/liff';
 
-liff.init({ 
-    liffId: '1653935174-baeNzNDB' 
-    }) 
-    .then(() => {
-    // start to use LIFF's api
-        if (!liff.isLoggedIn()) {
-            liff.login();
-        }else{
-            // initializeApp();
-            console.log("loged")
-        }
-    })
-    .catch((err) => {
 
-    });
+const SomeComponent = () => {
+    var a;
+    if (process.browser) {
+        const liff = window.liff;
+        liff
+            .init({
+                liffId: "1653935174-baeNzNDB" // Use own liffId
+            })
+            .then(() => {
+                // Start to use liff's api
+                if (!liff.isLoggedIn()) {
+                    liff.login();
 
-const Navbar = () => {
-    console.log(liff.isLoggedIn())
+                  }else{
+                    a = "hello";
+
+                  }
+            })
+            .catch((err) => {
+                console.log(err.code, err.message);
+            });
+    }
+
+    console.log(a)
+
+   return <Avatar alt="Remy Sharp" src="" />
+  }
+
+const Navbar = ()  => {
     return(
         <div>
             <ul>
@@ -44,9 +55,8 @@ ul li a {
                     text-decoration: none;
                 }
             `}</style>
-              <div id="header">
-                {/* console.log("test") */}
-             </div>
+                <SomeComponent />
+
 
         </div>
     );
